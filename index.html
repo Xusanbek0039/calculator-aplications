@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="uz" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculator Application</title>
+
+  <!-- Mavzuni foydalanuvchi sozlamalariga moslashtirish -->
+  <script>
+    let localSTheme = localStorage.getItem('theme');
+    let themeToSet = localSTheme;
+
+    if (!localSTheme) {
+      themeToSet = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+
+    document.documentElement.setAttribute('data-theme', themeToSet);
+  </script>
+
+
+  <!-- Shriftlar -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&display=swap" rel="stylesheet">
+
+
+  <!-- Uslublar jadvallari -->
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <div class="calculator">
+    <!-- HEADER -->
+    <header class="calculator__header">
+      <a class="calculator__logo logo" href="index.html">IT Creative</a>
+
+      <!-- Mavzu sozlama;ari -->
+      <div class="theme-switcher">
+        <span class="theme-switcher__text">Mavzu</span>
+
+        <div class="theme-switcher__control-wrapper">
+          <input class="theme-switcher__radio visually-hidden" type="radio" name="theme" value="dark" id="dark-theme-radio" checked>
+          <input class="theme-switcher__radio visually-hidden" type="radio" name="theme" value="light" id="light-theme-radio">
+          <input class="theme-switcher__radio visually-hidden" type="radio" name="theme" value="vintage" id="vintage-theme-radio">
+
+          <div class="theme-switcher__indicators-wrapper">
+            <div>Alt<br>+</div>
+            <div class="theme-switcher__indicators">
+              <span>1</span>
+              <span>2</span>
+              <span>3</span>
+            </div>
+          </div>
+
+          <div class="theme-switcher__control">
+            <label class="theme-switcher__label" for="dark-theme-radio">
+              <span class="visually-hidden">Qorong'i mavzu</span>
+            </label>
+            <label class="theme-switcher__label" for="light-theme-radio">
+              <span class="visually-hidden">Yorug' mavzu</span>
+            </label>
+            <label class="theme-switcher__label" for="vintage-theme-radio">
+              <span class="visually-hidden">Vintage mavzu</span>
+            </label>
+
+            <span class="theme-switcher__circle"></span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Asosiy tugmalar uchun -->
+    <main class="calculator__main">
+      <input class="calculator__input" type="text" inputmode="number" placeholder="0" autofocus>
+
+      <div class="calculator__keyboard">
+        <button class="key key--number key--7" data-key="7" type="button">7</button>
+        <button class="key key--number key--8" data-key="8" type="button">8</button>
+        <button class="key key--number key--9" data-key="9" type="button">9</button>
+        <button class="key key--command key--del" type="button">O'chirish</button>
+        <button class="key key--number key--4" data-key="4" type="button">4</button>
+        <button class="key key--number key--5" data-key="5" type="button">5</button>
+        <button class="key key--number key--6" data-key="6" type="button">6</button>
+        <button class="key key--operator key--add" data-key="+" type="button">+</button>
+        <button class="key key--number key--1" data-key="1" type="button">1</button>
+        <button class="key key--number key--2" data-key="2" type="button">2</button>
+        <button class="key key--number key--3" data-key="3" type="button">3</button>
+        <button class="key key--operator key--subtract" data-key="-" type="button">-</button>
+        <button class="key key--number key--decimal" data-key="." type="button">.</button>
+        <button class="key key--number key--0" data-key="0" type="button">0</button>
+        <button class="key key--operator key--divide" data-key="/" type="button">/</button>
+        <button class="key key--operator key--multiply" data-key="*" type="button">x</button>
+        <button class="key key--command key--reset" type="button">Tozalash</button>
+        <button class="key key--command key--equal" data-key="=" type="button">=</button>
+      </div>
+    </main>
+  </div>
+
+
+  <!-- AUDIO sozlamalar  -->
+  <audio id="switch-audio">
+    <source src="media/switch.mp3" type="audio/mpeg">
+    <source src="media/switch.ogg" type="audio/ogg">
+    <source src="media/switch.wav" type="audio/wav">
+  </audio>
+
+  <audio id="key-audio">
+    <source src="media/cherry-key.mp3" type="audio/mpeg">
+    <source src="media/cherry-key.ogg" type="audio/ogg">
+    <source src="media/cherry-key.wav" type="audio/wav">
+  </audio>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

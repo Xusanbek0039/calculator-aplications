@@ -1,0 +1,503 @@
+:root {
+  --transition-duration: 0.3s;
+}
+
+:root[data-theme="light"] {
+  --color-bg-body: #e6e6e6;
+  --color-text-body: #36362c;
+
+  --color-outline: #c85402;
+
+  --color-text-header: #36362c;
+
+  --color-bg-controls: #d2cdcd;
+
+  --color-bg-circle: #c85402;
+  --color-bg-circle-hover: #ff8a38;
+
+  --color-bg-input: #eee;
+  --color-text-input: #36362c;
+
+  --color-bg-key: #e5e4e1;
+  --color-bg-key-hover: #fff;
+  --color-bg-key-active: #cfcecb;
+  --color-shadow-key: #a79e91;
+
+  --color-bg-key-command: #378187;
+  --color-text-key-command: #fff;
+  --color-bg-key-command-hover: #62b5bc;
+  --color-bg-key-command-active: #33757b;
+  --color-shadow-key-command: #1b6066;
+
+  --color-bg-key-equal: #c85402;
+  --color-text-key-equal: #fff;
+  --color-bg-key-equal-hover: #ff8a38;
+  --color-bg-key-equal-active: #b14a00;
+  --color-shadow-key-equal: #873901;
+}
+
+:root[data-theme="dark"] {
+  --color-bg-body: #3a4663;
+  --color-text-body: #434a59;
+
+  --color-outline: #fff;
+
+  --color-text-header: #fff;
+
+  --color-bg-controls: #242d44;
+
+  --color-bg-circle: #d03f2f;
+  --color-bg-circle-hover: #f96b5b;
+
+  --color-bg-input: #181f33;
+  --color-text-input: #fff;
+
+  --color-bg-key: #eae3dc;
+  --color-bg-key-hover: #fffffe;
+  --color-bg-key-active: #e6d5c4;
+  --color-shadow-key: #b3a497;
+
+  --color-bg-key-command: #647198;
+  --color-text-key-command: #fff;
+  --color-bg-key-command-hover: #a2b2e1;
+  --color-bg-key-command-active: #546084;
+  --color-shadow-key-command: #414e73;
+
+  --color-bg-key-equal: #d03f2f;
+  --color-text-key-equal: #fff;
+  --color-bg-key-equal-hover: #f96b5b;
+  --color-bg-key-equal-active: #ac382b;
+  --color-shadow-key-equal: #93261a;
+}
+
+:root[data-theme="vintage"] {
+  --color-bg-body: #17062A;
+  --color-text-body: #FFE53D;
+
+  --color-outline: #FFE53D;
+
+  --color-text-header: #FFE53D;
+
+  --color-bg-controls: #1E0936;
+
+  --color-bg-circle: #00DED0;
+  --color-bg-circle-hover: #93FFF8;
+
+  --color-bg-input: #1E0936;
+  --color-text-input: #FFE53D;
+
+  --color-bg-key: #331C4D;
+  --color-bg-key-hover: #6C34AC;
+  --color-bg-key-active: #261539;
+  --color-shadow-key: #881C9E;
+
+  --color-bg-key-command: #56077C;
+  --color-text-key-command: #fff;
+  --color-bg-key-command-hover: #8631AF;
+  --color-bg-key-command-active: #3f0759;
+  --color-shadow-key-command: #BE15F4;
+
+  --color-bg-key-equal: #00DED0;
+  --color-text-key-equal: #1A2327;
+  --color-bg-key-equal-hover: #93FFF8;
+  --color-bg-key-equal-active: #01bcb0;
+  --color-shadow-key-equal: #6CF9F1;
+}
+
+
+body {
+  display: flex;
+  flex-direction: column;
+  padding: 30px 24px;
+  margin: 0;
+  font-family: "League Spartan", "Arial", sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: -0.03331rem;
+  background-color: var(--color-bg-body);
+  color: var(--color-text-body);
+  transition-duration: var(--transition-duration);
+  transition-timing-function: ease;
+  transition-property: background-color, color;
+}
+
+img {
+  height: auto;
+}
+
+*:focus {
+  outline: 2px dashed var(--color-outline);
+  outline-offset: 3px;
+}
+
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+
+/* CONTAINER */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  padding-left: 50px;
+  padding-right: 50px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+.main-content {
+  flex-grow: 1;
+}
+
+
+
+.logo {
+  font-size: 2rem;
+  letter-spacing: -0.03331rem;
+  color: var(--color-text-header);
+  text-decoration: none;
+}
+
+
+
+.theme-switcher {
+  display: flex;
+  align-items: flex-end;
+  gap: 24px;
+  font-size: 0.75rem;
+  letter-spacing: 0.0625rem;
+  color: var(--color-text-header);
+  text-transform: uppercase;
+}
+
+.theme-switcher__text {
+  margin-bottom: 5px;
+}
+
+.theme-switcher__indicators-wrapper {
+  text-align: center;
+}
+
+.theme-switcher__indicators {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 5px;
+  letter-spacing: 0;
+}
+
+.theme-switcher__control {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  width: 71px;
+  height: 26px;
+  padding: 5px;
+  border-radius: 13px;
+  overflow: hidden;
+  background-color: var(--color-bg-controls);
+  cursor: pointer;
+}
+
+.theme-switcher__radio:focus ~ .theme-switcher__control {
+  outline: 2px dashed var(--color-outline);
+  outline-offset: 3px;
+}
+
+.theme-switcher__label {
+  position: relative;
+  z-index: 2;
+  flex-grow: 1;
+  cursor: pointer;
+}
+
+.theme-switcher__circle {
+  position: absolute;
+  z-index: 1;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: var(--color-bg-circle);
+  transition-duration: var(--transition-duration);
+  transition-timing-function: ease;
+  transition-property: transform, background-color, opacity;
+}
+
+.theme-switcher__label:hover ~ .theme-switcher__circle {
+  background-color: var(--color-bg-circle-hover);
+}
+
+.theme-switcher__circle:active {
+  opacity: 0.6;
+}
+
+[data-theme="dark"] .theme-switcher__circle,
+.theme-switcher__radio#dark-theme-radio:checked ~ .theme-switcher__control .theme-switcher__circle {
+  transform: translateX(0);
+}
+
+[data-theme="light"] .theme-switcher__circle,
+.theme-switcher__radio#light-theme-radio:checked ~ .theme-switcher__control .theme-switcher__circle {
+  transform: translateX(23px);
+}
+
+[data-theme="vintage"] .theme-switcher__circle,
+.theme-switcher__radio#vintage-theme-radio:checked ~ .theme-switcher__control .theme-switcher__circle {
+  transform: translateX(45px);
+}
+
+
+
+.key {
+  display: block;
+  padding: 13px 10px 11px;
+  border: 0;
+  border-radius: 5px;
+  background-color: var(--color-bg-key);
+  color: var(--color-text-body);
+  text-align: center;
+  box-shadow: 0px -4px 0px 0px var(--color-shadow-key) inset;
+  cursor: pointer;
+  transition-duration: var(--transition-duration);
+  transition-timing-function: ease;
+  transition-property: background-color, color, box-shadow;
+}
+
+.key:hover {
+  background-color: var(--color-bg-key-hover);
+}
+
+.key:active,
+.key--active {
+  background-color: var(--color-bg-key-active);
+  box-shadow: 0px -3px 0px 0px var(--color-shadow-key) inset;
+  transform: translateY(1px);
+}
+
+.key--command {
+  font-size: 1.25rem;
+  letter-spacing: -0.02081rem;
+  background-color: var(--color-bg-key-command);
+  color: var(--color-text-key-command);
+  text-transform: uppercase;
+  box-shadow: 0px -4px 0px 0px var(--color-shadow-key-command) inset;
+}
+
+.key--command:hover {
+  background-color: var(--color-bg-key-command-hover);
+}
+
+.key--command:active,
+.key--command.key--active {
+  background-color: var(--color-bg-key-command-active);
+  box-shadow: 0px -3px 0px 0px var(--color-shadow-key-command) inset;
+}
+
+.key--equal {
+  background-color: var(--color-bg-key-equal);
+  color: var(--color-text-key-equal);
+  box-shadow: 0px -4px 0px 0px var(--color-shadow-key-equal) inset;
+}
+
+.key--equal:hover {
+  background-color: var(--color-bg-key-equal-hover);
+}
+
+.key--equal:active,
+.key--equal.key--active {
+  background-color: var(--color-bg-key-equal-active);
+  box-shadow: 0px -3px 0px 0px var(--color-shadow-key-equal) inset;
+}
+
+
+.key--7 {
+  grid-area: seven;
+}
+
+.key--8 {
+  grid-area: eight;
+}
+
+.key--9 {
+  grid-area: nine;
+}
+
+.key--del {
+  grid-area: del;
+}
+
+.key--4 {
+  grid-area: four;
+}
+
+.key--5 {
+  grid-area: five;
+}
+
+.key--6 {
+  grid-area: six;
+}
+
+.key--add {
+  grid-area: add;
+}
+
+.key--1 {
+  grid-area: one;
+}
+
+.key--2 {
+  grid-area: two;
+}
+
+.key--3 {
+  grid-area: three;
+}
+
+.key--subtract {
+  grid-area: subtract;
+}
+
+.key--decimal {
+  grid-area: decimal;
+}
+
+.key--0 {
+  grid-area: zero;
+}
+
+.key--divide {
+  grid-area: divide;
+}
+
+.key--multiply {
+  grid-area: multiply;
+}
+
+.key--reset {
+  grid-area: reset;
+}
+
+.key--equal {
+  grid-area: equal;
+}
+
+
+/* CALCULATOR */
+.calculator {
+  width: 100%;
+  max-width: 33.75rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.calculator__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 32px;
+}
+
+.calculator__logo {
+  margin-left: 7px;
+  margin-bottom: 3px;
+}
+
+
+.calculator__main {
+  display: grid;
+  gap: 24px;
+}
+
+.calculator__input {
+  display: block;
+  width: 100%;
+  padding: 29px 24px 22px;
+  border: 0;
+  border-radius: 10px;
+  font-size: 2.5rem;
+  letter-spacing: -0.04169rem;
+  background-color: var(--color-bg-input);
+  color: var(--color-text-input);
+  text-align: right;
+  transition-duration: var(--transition-duration);
+  transition-timing-function: ease;
+  transition-property: background-color, color;
+}
+
+.calculator__keyboard {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(5, 64px);
+  grid-template-areas:
+    "seven eight nine del"
+    "four five six add"
+    "one two three subtract"
+    "decimal zero divide multiply"
+    "reset reset equal equal";
+  ;
+  gap: 13px;
+  padding: 24px;
+  border-radius: 10px;
+  background-color: var(--color-bg-controls);
+  transition-duration: var(--transition-duration);
+  transition-timing-function: ease;
+  transition-property: background-color;
+}
+
+
+@media
+only screen and (-webkit-min-device-pixel-ratio: 2),
+only screen and (   min--moz-device-pixel-ratio: 2),
+only screen and (     -o-min-device-pixel-ratio: 2/1),
+only screen and (        min-device-pixel-ratio: 2),
+only screen and (                min-resolution: 192dpi),
+only screen and (                min-resolution: 2dppx) {
+
+}
+
+@media only screen and (min-width: 36.75em) {
+  body {
+    padding: 96px 24px;
+    font-size: 2.5rem;
+    letter-spacing: -0.04169rem;
+  }
+
+  .calculator__logo {
+    margin-bottom: -3px;
+  }
+
+  .calculator__input {
+    padding: 40px 32px 36px;
+    font-size: 3.5rem;
+    letter-spacing: -0.05831rem;
+  }
+
+  .calculator__keyboard {
+    gap: 24px;
+    padding: 32px 30px;
+  }
+
+  .key {
+    border-radius: 10px;
+  }
+
+  .key--command {
+    font-size: 1.75rem;
+    letter-spacing: -0.02919rem;
+  }
+}
+
+
+
+
+/* Suyunov Husan */
